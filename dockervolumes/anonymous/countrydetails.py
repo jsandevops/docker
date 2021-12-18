@@ -4,13 +4,19 @@ import json
 app = Flask(__name__)
 
 file_location = "/app/countries.json"
+try:
+    ## For Docker path
+    my_file = open(file_location)
+except:
+    ## For Local path
+    file_location = "countries.json"
 
 def read_json_data():
     # Opening JSON file
     with open(file_location, 'r') as openfile:
         json_object = json.load(openfile)
-        return json_object
-  
+        return json_object     
+
 def write_josn_data(in_json):
     with open(file_location, 'w') as f:
         json.dump(in_json, f)
@@ -25,7 +31,12 @@ countries = [
     {"id": 1, "name": "India", "capital": "Delhi", "area": 10003120}
 ]
 
-write_josn_data(countries)
+try:
+    ## Check if file already exists
+    my_file = open(file_location)
+except:
+    ## If file does not exists, create it for the first time
+    write_josn_data(countries)
 
 def _find_next_id(countries):
     """

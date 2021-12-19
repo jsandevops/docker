@@ -55,3 +55,7 @@ Here we should see only one country in the output
 - If container is started with --rm flag, both anonymous volume and container will be deleted when container is stopped  
 - If container is started without --rm flag, anonymous volume will persist and data can be retained when container is stopped and started again
 - We can define anonymous volume creation in Dockerfile OR while spinning a container
+
+## Use cases for Anonymous volumes:
+- Speed up the container processing in case of large data processing. When a anonyous volumne is mounted for storing container data, then it speeds up the processing as the data is stored on disk instead of in limied container memory  
+- Docker evaluates all the volumes that are set for a container and if there are clashes, the longer internal path wins. So if we want a certain folder should not be overwritten while mounting bind mount then mount a anonymous volume with longer internal path to avoid overwritting

@@ -25,7 +25,7 @@ No new volume should exist
 > ` docker run -d --rm -p 9090:9090 --name=dockervolumesbindmount -v /root/hostapp/countries.json:/app/countries.json dockervolumesbindmount:1 `    
 
 **Note:** an extra -v has path (starting by /) instead of just name. We are mapping just file here.
-**Wanring:** In case, when we map a host folder with container folder then the contents of the container folder will be overwriten
+**Warning:** In case, when we map a host folder with container folder then the contents of the container folder will be overwriten
 
 ## Check if any volume exists:
 > ` docker volume ls `  

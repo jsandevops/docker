@@ -46,8 +46,7 @@ def _find_next_id(countries):
 
 @app.get("/")
 def landing_page():
-    return "Welcome to simple flask api"
-
+    return "Welcome to Docker named volume page"
 
 @app.get("/countries")
 def get_countries():

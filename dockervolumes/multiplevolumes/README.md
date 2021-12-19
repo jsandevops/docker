@@ -17,7 +17,7 @@
 No new volume should exist
 
 ## Run container from image:
-> ` docker run -d --rm -p 9090:9090 --name=dockervolumesmultiplevolumes -v /root/hostapp:/app -v appdata:/app/appdata -v /root/hostapp/countries.json  dockervolumesmultiplevolumes:1 `    
+> ` docker run -d --rm -p 9090:9090 --name=dockervolumesmultiplevolumes -v /root/docker/dockervolumes/multiplevolumes:/app -v appdata:/app/appdata -v /root/hostapp/countries.json dockervolumesmultiplevolumes:1 `    
 
 **Note:**
 - Here all three types of volumes are mapped together   
@@ -31,3 +31,6 @@ We would be able to see two volume, one anonymous and one named. Also host folde
 ## **Conclusion:**
 - We can map multiple volumes of same or multiple types, while running a container  
 - Docker evaluates all the volumes that are set for a container and if there are clashes, the longer internal path wins. So if we want a certain folder should not be overwritten while mounting bind mount then mount a anonymous volume with longer internal path to avoid overwritting  
+- In case of bind mount, if we want that the container should not change any data on host machine then we can make bind mount as read only by changing it in the following way. Again the same principle applies that if longer internal path as different configuration then it will overwrite the parent folder behaviour:  
+> ` -v /root/docker/dockervolumes/multiplevolumes:/app:ro `    
+

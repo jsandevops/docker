@@ -9,7 +9,7 @@ def landing_page():
     return "Welcome to Docker external network request page"
 
 @app.get("/details")
-def get_countries():
+def get_details():
     external_api_url = "http://jsonplaceholder.typicode.com/posts/1"
     external_response = requests.get(external_api_url)
     return jsonify(external_response.json())

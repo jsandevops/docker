@@ -37,14 +37,14 @@ Now one volume with name mynamedvolume should exist
 > ` docker stop dockervolumesnamed `  
 > ` docker ps `  
 
-Conatiner should not exists anymore
+Container should not exists anymore
 
 ## Check if any volume exists:
 > ` docker volume ls `  
 
 Yes, the volume with name *mynamedvolume* should still exist
 
-## Run the conatiner again with same volumn (-v option) for mynamedvolume as before:
+## Run the container again with same volumn (-v option) for mynamedvolume as before:
 > ` docker run -d --rm -p 9090:9090 --name=dockervolumesnamed -v mynamedvolume:/app dockervolumesnamed:1 `  
 > ` curl localhost:9090/countries `  
 

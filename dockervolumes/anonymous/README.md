@@ -19,7 +19,7 @@ No new volume should exist
 ## Run container from image:
 > ` docker run -d --rm -p 9090:9090 --name=dockervolumesanonymous dockervolumesanonymous:1 `  
 
-Note: --rm flag will remove the conatiner once stopped and also will delete volume at the same time
+Note: --rm flag will remove the container once stopped and will also delete volume at the same time
 
 ## Check if any volume exists:
 > ` docker volume ls `  
@@ -37,14 +37,14 @@ Now one anonymous volume should exist
 > ` docker stop dockervolumesanonymous `  
 > ` docker ps `  
 
-Conatiner should not exists anymore
+Container should not exists anymore
 
 ## Check if any volume exists:
 > ` docker volume ls `  
 
 Newly created volume should not exist anymore
 
-## Run the conatiner again:
+## Run the container again:
 > ` docker run -d --rm -p 9090:9090 --name=dockervolumesanonymous dockervolumesanonymous:1 `  
 > ` curl localhost:9090/countries `  
 

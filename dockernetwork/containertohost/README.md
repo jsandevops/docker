@@ -1,4 +1,4 @@
-# Docker Network: Request from container to World Wide Web (Externally hosted API) 
+# Docker Network: Request from container to Host Service
 
 ## Code setup:
 
@@ -9,7 +9,7 @@
 > ` docker build -t dockernetworktohost:1 . `  
 
 ## Install Postgres DB on local
-> `docker run -d --name host-postgres-db -p 5432:5432 -e POSTGRES_PASSWORD=dockerpass -e POSTGRES_USER=dockeruser -e POSTGRES_DB=dockerdb postgres:alpine3.15 `  
+> `docker run -d --rm -p 5432:5432 --name host-postgres-db -e POSTGRES_PASSWORD=dockerpass -e POSTGRES_USER=dockeruser -e POSTGRES_DB=dockerdb postgres:alpine3.15 `  
 
 Postgres DB will be used from Docker container however, we will be connecting to it as if it is an independent service
 
